@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Allah Knows Technology ltd - Buy | Sell | Swap | Repair gadgets in one place">
+    <title>Allah Knows Technology LTD - Gadget Hub</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="repair.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav id="navbar">
+  <div class="nav-container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <div class="logo-frame">
+        <img src="IMG-20250310-WA0125.jpg" alt="Logo" />
+      </div>
+    </div>
+
+    <!-- Right Items: Hamburger & Navigation Links -->
+    <div class="right-items">
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="buy.html">Buy</a></li>
+        <li><a href="sell.html">Sell</a></li>
+        <li><a href="swap.html">Swap</a></li>
+        <li><a href="repair.html">Repair</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Repair Section -->
+<section id="repair" class="service-section">
+    <h2>Repair Service</h2>
+    <div class="repair-form">
+        <div class="form-group">
+            <label>Device Type</label>
+            <select id="repair-device-type">
+                <option value="">Select Device Type</option>
+                <option value="phone">Phone</option>
+                <option value="laptop">Laptop</option>
+                <option value="tablet">Tablet</option>
+                <option value="other">Other Gadget</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Brand</label>
+            <select id="repair-brand">
+                <option value="">Select Brand</option>
+                <option value="apple">Apple</option>
+                <option value="samsung">Samsung</option>
+                <option value="tecno">Tecno</option>
+                <option value="infinix">Infinix</option>
+                <option value="nokia">Nokia</option>
+                <option value="dell">Dell</option>
+                <option value="hp">HP</option>
+                <option value="lenovo">Lenovo</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Model</label>
+            <input type="text" id="repair-model" placeholder="Enter device model">
+        </div>
+        <div class="form-group">
+            <label>Repair Needed</label>
+            <select id="repair-issue">
+                <option value="">Select Issue</option>
+                <option value="screen">Screen Replacement</option>
+                <option value="battery">Battery Replacement</option>
+                <option value="charging">Charging Port Issue</option>
+                <option value="software">Software Problem</option>
+                <option value="water">Water Damage</option>
+                <option value="other">Other Issue</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea id="repair-description" placeholder="Describe the issue in detail"></textarea>
+        </div>
+        <button type="button" class="submit-button" onclick="bookRepair()">Book Repair</button>
+    </div>
+</section>
+<!-- Marquee Text -->
+<div class="marquee-container">
+    <div class="marquee-text">
+        <b>Contact Us: For inquiries, bookings, Home delivery or more information, reach out to us at:📞 +234 703 939 4641 Thank You for Doing Business With Us!</b>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="social-media">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/2347039394641" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <div class="footer-column">
+        <h4>Contact:</h4>
+        <ul>
+            <li><a href="tel:+2347039394641">+234 703 939 4641</a></li>
+            <li><a href="mailto:allahknowstech@gmail.com">Email</a></li>
+            <li><a href="https://wa.me/2347039394641">WhatsApp</a></li>
+            <li>Ilorin, Kwara State</li>
+        </ul>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 Allah Knows Technology LTD. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/2347039394641" class="float-whatsapp">
+    <img src="whatsapp.png" alt="WhatsApp">
+</a>
+
+<script>
+    // Mobile menu toggle
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+        this.classList.toggle('active');
+    });
+
+    // Scroll behavior for navigation
+    let lastScroll = 0;
+    const nav = document.getElementById('mainNav');
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            nav.classList.remove('scroll-up');
+            return;
+        }
+        
+        if (currentScroll > lastScroll && !nav.classList.contains('scroll-down')) {
+            nav.classList.remove('scroll-up');
+            nav.classList.add('scroll-down');
+        } else if (currentScroll < lastScroll && nav.classList.contains('scroll-down')) {
+            nav.classList.remove('scroll-down');
+            nav.classList.add('scroll-up');
+            // Close mobile menu when scrolling up
+            document.querySelector('.nav-links').classList.remove('active');
+            document.querySelector('.hamburger').classList.remove('active');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Buy Section Tabs
+    function openBuyTab(tabName) {
+        const tabContents = document.querySelectorAll('#buy .tab-content');
+        tabContents.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        
+        const tabButtons = document.querySelectorAll('#buy .tab-button');
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        document.getElementById(tabName).style.display = 'block';
+        event.currentTarget.classList.add('active');
+    }
+    
+    // Sell Section Tabs
+    function openSellTab(tabName) {
+        const tabContents = document.querySelectorAll('#sell .tab-content');
+        tabContents.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        
+        const tabButtons = document.querySelectorAll('#sell .tab-button');
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        document.getElementById(tabName).style.display = 'block';
+        event.currentTarget.classList.add('active');
+    }
+    
+    // E-commerce Section Tabs
+    function openEcommerceTab(tabName) {
+        const tabContents = document.querySelectorAll('#ecommerce .tab-content');
+        tabContents.forEach(tab => {
+            tab.style.display = 'none';
+        });
+        
+        const tabButtons = document.querySelectorAll('#ecommerce .tab-button');
+        tabButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        document.getElementById(tabName).style.display = 'block';
+        event.currentTarget.classList.add('active');
+    }
+    
+    // Filter Phone Products
+    function filterProducts(brand) {
+        const products = document.querySelectorAll('#ecommerce-phone .product-item');
+        const brandButtons = document.querySelectorAll('#ecommerce-phone .brand-button');
+        
+        brandButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        event.currentTarget.classList.add('active');
+        
+        products.forEach(product => {
+            if (brand === 'all' || product.classList.contains(brand)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+    
+    // Filter Laptop Products
+    function filterLaptops(brand) {
+        const products = document.querySelectorAll('#ecommerce-laptop .product-item');
+        const brandButtons = document.querySelectorAll('#ecommerce-laptop .brand-button');
+        
+        brandButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        event.currentTarget.classList.add('active');
+        
+        products.forEach(product => {
+            if (brand === 'all' || product.classList.contains(brand)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+    
+    // Redirect to WhatsApp for Buy Section
+    function redirectToWhatsApp(action, brand) {
+        const message = `Hello, I want to ${action} a ${brand} device.`;
+        window.location.href = `https://wa.me/2347039394641?text=${encodeURIComponent(message)}`;
+    }
+    
+    // Submit Sell Form
+    function submitSellForm() {
+        const form = event.target.closest('.sell-form');
+        const inputs = form.querySelectorAll('input, select, textarea');
+        let message = "I want to sell my gadget with the following details:\n\n";
+        
+        inputs.forEach(input => {
+            if (input.value && input.type !== 'button' && input.type !== 'submit') {
+                const label = input.previousElementSibling ? input.previousElementSibling.textContent : input.name;
+                message += `${label}: ${input.value}\n`;
+            }
+        });
+        
+        window.location.href = `https://wa.me/2347039394641?text=${encodeURIComponent(message)}`;
+    }
+    
+    // Book Repair
+    function bookRepair() {
+        const deviceType = document.getElementById('repair-device-type').value;
+        const brand = document.getElementById('repair-brand').value;
+        const model = document.getElementById('repair-model').value;
+        const issue = document.getElementById('repair-issue').value;
+        const description = document.getElementById('repair-description').value;
+        
+        let message = "I need repair service with the following details:\n\n";
+        message += `Device Type: ${deviceType}\n`;
+        message += `Brand: ${brand}\n`;
+        message += `Model: ${model}\n`;
+        message += `Issue: ${issue}\n`;
+        message += `Description: ${description}`;
+        
+        window.location.href = `https://wa.me/2347039394641?text=${encodeURIComponent(message)}`;
+    }
+    
+    // Order Product
+    function orderProduct(name, price) {
+        const message = `Hello, I want to order ${name} (${price}). Please provide more details.`;
+        window.location.href = `https://wa.me/2347039394641?text=${encodeURIComponent(message)}`;
+    }
+</script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navbar = document.getElementById('navbar');
+
+  // Toggle menu
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close when clicking outside
+  window.addEventListener('click', function (e) {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
+  });
+
+  // Hide/show navbar on scroll (desktop only)
+  let lastScrollTop = 0;
+  window.addEventListener('scroll', function () {
+    if (window.innerWidth > 768) {
+      let st = window.scrollY || document.documentElement.scrollTop;
+      if (st > lastScrollTop) {
+        navbar.style.top = "-100px"; // hide
+      } else {
+        navbar.style.top = "0"; // show
+      }
+      lastScrollTop = st <= 0 ? 0 : st;
+    }
+  });
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>

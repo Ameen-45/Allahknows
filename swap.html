@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Allah Knows Technology ltd - Buy | Sell | Swap | Repair gadgets in one place">
+    <title>Allah Knows Technology LTD - Gadget Hub</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="swap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav id="navbar">
+  <div class="nav-container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+      <div class="logo-frame">
+        <img src="IMG-20250310-WA0125.jpg" alt="Logo" />
+      </div>
+    </div>
+
+    <!-- Right Items: Hamburger & Navigation Links -->
+    <div class="right-items">
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="buy.html">Buy</a></li>
+        <li><a href="sell.html">Sell</a></li>
+        <li><a href="swap.html">Swap</a></li>
+        <li><a href="repair.html">Repair</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Swap Section -->
+  <section>
+    <h2>Swap Your Gadget</h2>
+    <p><strong>Select a category and click "Swap Now" to initiate a WhatsApp conversation.</strong></p>
+
+    <h3>Phones Available for Swap</h3>
+    <div>
+      <div>
+        <img src="Apple.png" alt="iPhone" width="100">
+        <h4>iPhone</h4>
+        <p>Swap your old device for a newer iPhone.</p>
+        <button onclick="swapNow('Phone', 'iPhone')">Swap Now</button>
+      </div>
+      <div>
+        <img src="Samsung.png" alt="Samsung" width="100">
+        <h4>Samsung</h4>
+        <p>Upgrade to the latest Samsung model.</p>
+        <button onclick="swapNow('Phone', 'Samsung')">Swap Now</button>
+      </div>
+    </div>
+
+    <h3>Laptops Available for Swap</h3>
+    <div>
+      <div>
+        <img src="macbook.webp" alt="MacBook" width="100">
+        <h4>MacBook</h4>
+        <p>Swap your laptop for a MacBook today.</p>
+        <button onclick="swapNow('Laptop', 'MacBook')">Swap Now</button>
+      </div>
+      <div>
+        <img src="hp.jpg" alt="HP" width="100">
+        <h4>HP</h4>
+        <p>Trade in your current laptop for a new HP.</p>
+        <button onclick="swapNow('Laptop', 'HP')">Swap Now</button>
+      </div>
+    </div>
+  </section>
+  <!-- Marquee Text -->
+<div class="marquee-container">
+    <div class="marquee-text">
+        <b>Contact Us: For inquiries, bookings, Home delivery or more information, reach out to us at:📞 +234 703 939 4641 Thank You for Doing Business With Us!</b>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="social-media">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/2347039394641" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <div class="footer-column">
+        <h4>Contact:</h4>
+        <ul>
+            <li><a href="tel:+2347039394641">+234 703 939 4641</a></li>
+            <li><a href="mailto:allahknowstech@gmail.com">Email</a></li>
+            <li><a href="https://wa.me/2347039394641">WhatsApp</a></li>
+            <li>Ilorin, Kwara State</li>
+        </ul>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 Allah Knows Technology LTD. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/2347039394641" class="float-whatsapp">
+    <img src="whatsapp.png" alt="WhatsApp">
+</a>
+
+  <!-- Simple WhatsApp Redirect Script -->
+  <script>
+    function swapNow(category, brand) {
+      const message = `Hello, I want to swap a ${category}: ${brand}`;
+      const phoneNumber = "234XXXXXXXXXX"; // Replace with your WhatsApp number
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+  </script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navbar = document.getElementById('navbar');
+
+  // Toggle menu
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close when clicking outside
+  window.addEventListener('click', function (e) {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
+  });
+
+  // Hide/show navbar on scroll (desktop only)
+  let lastScrollTop = 0;
+  window.addEventListener('scroll', function () {
+    if (window.innerWidth > 768) {
+      let st = window.scrollY || document.documentElement.scrollTop;
+      if (st > lastScrollTop) {
+        navbar.style.top = "-100px"; // hide
+      } else {
+        navbar.style.top = "0"; // show
+      }
+      lastScrollTop = st <= 0 ? 0 : st;
+    }
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>
